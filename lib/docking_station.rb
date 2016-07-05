@@ -1,2 +1,2 @@
-class DockingStation
+class DockingStation 
 end
