@@ -8,9 +8,10 @@ describe Docking_station do
 #   expect(Docking_station).to respond_to(:release_bike)
   it {is_expected.to respond_to :release_bike}
 #it 'station release_bike' do
-  it 'releases working bikes' do
-    bike = subject.release_bike
-    expect(bike).to be_working
+it 'release working bikes' do
+  bike = subject.release_bike
+  expect(bike).to be_working
+end
   #expect(Docking_station).to :release_bike to (Bike)
-  end
+
 end
