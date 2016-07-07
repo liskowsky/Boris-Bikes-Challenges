@@ -1,16 +1,16 @@
 require_relative 'bike'
 
 class DockingStation
-  attr_reader :bike
+  attr_reader :bikes
 
   def release_bike
-    fail "Sorry, there are no bikes" unless @bike
-    @bike
+    fail "Sorry, there are no bikes" unless @bikes
+    @bikes
   end
 
-  def dock_bike(bike)
-    fail "Sorry, another bike already docked" if @bike
-    @bike = bike
+  def dock(bike)
+    fail "Sorry, another bike already docked" if @bikes
+    @bikes = bike
   end
 
 end
