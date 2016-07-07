@@ -1,8 +1,7 @@
-require "bike"
-
-  describe Bike do
-    #it "confirms that the bike is working" do
-    #  expect(subject).to respond_to :working?
-    #end
-    it { is_expected.to respond_to :working? }
-  end
+require 'bike'
+describe Bike do
+it {is_expected.to respond_to :working?}
+#  it 'returns true if Bike is working' do
+#  expect(Bike.working?).to eq true
+#  end
+end

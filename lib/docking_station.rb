@@ -1,10 +1,6 @@
-require_relative 'bike.rb'
-
-class DockingStation
+require_relative 'bike'
+class Docking_station
   def release_bike
-    Bike.new
+      Bike.new
   end
 end
-
-dock = DockingStation.new
-dock.release_bike
