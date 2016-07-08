@@ -14,10 +14,8 @@ describe DockingStation do
   end
 
   it 'returns docked bikes' do
-    bike = Bike.new
-    subject.dock(bike)
     # Again, we need to return the bike we just docked
-    expect(subject.bikes).to eq [bike]
+    expect(subject.dock(bike)).to eq bike
   end
 
   describe '#release_bike' do
@@ -43,10 +41,27 @@ describe DockingStation do
     end
 
     it 'raises an error when docking station is full' do
-      DockingStation::DEFAULT_CAPACITY.times { subject.dock(bike) }
+      subject.capacity.times { subject.dock(bike) }
       expect { subject.dock(bike) }.to raise_error("Sorry, Docking station full")
     end
 
-  end
+    it 'has a default capacity' do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
 
+    end
+
+  describe 'initialization' do
+      subject { DockingStation.new }
+      let(:bike) { Bike.new }
+      it 'defaults capacity' do
+      described_class::DEFAULT_CAPACITY.times do
+        subject.dock(bike)
+      end
+      expect{subject.dock(bike)}.to raise_error 'Sorry, Docking station full'
 end
+end
+
+
+
+  end
