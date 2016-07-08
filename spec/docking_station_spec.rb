@@ -24,6 +24,17 @@ describe DockingStation do
     expect { subject.dock(bike) }.to raise_error("Docking station full")
   end
 
+  it "sets capacity of docking station to 11" do
+    station = DockingStation.new(11)
+    expect(station.instance_variable_get(:@capacity)).to eq 11
+  end
+
+  it "has a default capacity" do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+
+
+
 
 
 end
