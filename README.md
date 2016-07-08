@@ -3,12 +3,12 @@
 ## Introduction
 
 
-A program that will run all the docking stations, simulate all the bikes, and emulate all the infrastructure.
+A learning development program to run all the docking stations, simulate all the bikes, and emulate all the infrastructure of a Boris Bikes project.
 
 Note: Work in progress.
 
-##Authors:
+##Authors (Thursday):
 
 * Julie Lev
 
-* Nomi Vos
+* Arunas Skirius
