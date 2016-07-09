@@ -7,11 +7,16 @@ describe DockingStation do
 
   it { is_expected.to respond_to(:bikes) }
 
-  it 'releases working bikes' do
-    subject.dock(Bike.new)
-    bike = subject.release_bike
-    expect(bike).to be_working
-  end
+  it 'does not release broken bikes' do
+    bike = Bike.new
+    bike.report_broken
+    subject.dock(bike)
+      expect { subject.release_bike }.to raise_error ("Sorry, there are no bikes")
+    end
+
+
+
+
 
   it 'returns docked bikes' do
     # Again, we need to return the bike we just docked
@@ -62,6 +67,8 @@ describe DockingStation do
         expect{subject.dock(bike)}.to raise_error 'Sorry, Docking station full'
     end
 end
+
+
 
 
 
