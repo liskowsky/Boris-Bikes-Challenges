@@ -19,6 +19,7 @@ class DockingStation
   def dock(bike)
     fail "Sorry, Docking station full" if full?
     bikes << bike
+    bike
   end
 
   attr_reader :bikes
