@@ -6,8 +6,6 @@ describe Bike do
   it "reports the bike is broken" do
     subject.report_broken
     expect(subject).to be_broken
-
-
   end
 
 end
