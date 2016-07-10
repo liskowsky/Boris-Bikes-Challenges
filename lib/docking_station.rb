@@ -4,25 +4,23 @@ class DockingStation
 
   DEFAULT_CAPACITY = 20
 
-  attr_accessor :capacity, :working_bikes, :bikes
+  attr_accessor :capacity, :broken_bikes, :bikes
 
   def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes = []
+    @broken_bikes = []
+
   end
 
   def release_bike
     raise "Sorry, there are no bikes" if empty?
-    find_working_bike
+    bikes.pop
   end
 
   def dock(bike)
     fail "Sorry, Docking station full" if full?
-    bikes << bike
-#    if !bike.broken?
-#      working_bikes << bike
-#    end
-    bike
+    accept_bike(bike)
   end
 
 private
@@ -32,16 +30,15 @@ private
   end
 
   def full?
-    bikes.count >= capacity
+    bikes.count + broken_bikes.count >= capacity
   end
 
-  def find_working_bike
-    @bikes.each_with_index do |bike, slot|
-      if !bike.broken?
-        return @bikes.slice!(slot)
-      end
-    end
-    raise "Sorry, there are no working bikes"
+  def accept_bike(bike)
+    bike.broken? ? broken_bikes << bike : bikes << bike
+  end
+
+  def release_broken_bike
+    broken_bikes.pop.flatten
   end
 
 end #end class
