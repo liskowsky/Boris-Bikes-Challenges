@@ -14,10 +14,6 @@ describe DockingStation do
       expect { subject.release_bike }.to raise_error ("Sorry, there are no bikes")
     end
 
-
-
-
-
   it 'returns docked bikes' do
     # Again, we need to return the bike we just docked
     bike = Bike.new
